@@ -77,6 +77,10 @@ h2 {
   border-block: 1px solid var(--rule);
 }
 
+.project + .project {
+  border-block-start: 0;
+}
+
 h3 {
   font-size: clamp(1.5rem, 3vw, 2rem);
   line-height: 1.2;
