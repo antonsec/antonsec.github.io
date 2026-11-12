@@ -196,6 +196,7 @@ a:focus-visible {
 }
 
 .demo-trigger {
+  appearance: none;
   margin-top: var(--space-2);
   padding: 0;
   border: 0;
@@ -350,12 +351,12 @@ a:focus-visible {
     transform: translateY(-3px) scale(1.01);
   }
 
-  .terminal-screen:is(:hover, :focus-visible) .terminal-command code {
+  .terminal-screen:is(:hover, :focus-visible, .is-playing) .terminal-command code {
     display: block;
     animation: terminal-command-reveal 500ms steps(24, end) both;
   }
 
-  .terminal-screen:is(:hover, :focus-visible) strong {
+  .terminal-screen:is(:hover, :focus-visible, .is-playing) strong {
     animation: terminal-match 600ms ease-out 500ms both;
   }
 

@@ -45,3 +45,13 @@ async function closeDemo(event) {
 
 dialog.addEventListener("submit", closeDemo);
 dialog.addEventListener("cancel", closeDemo);
+
+const terminal = document.querySelector(".terminal-screen");
+terminal.addEventListener("click", () => {
+  if (matchMedia("(hover: none)").matches) {
+    terminal.classList.remove("is-playing");
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => terminal.classList.add("is-playing"));
+    });
+  }
+});
