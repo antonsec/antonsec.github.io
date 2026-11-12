@@ -108,6 +108,18 @@ h3 {
   list-style: none;
 }
 
+.about-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.about-page .contact {
+  margin-top: auto;
+  padding-top: var(--space-4);
+}
+
 .about {
   display: grid;
   justify-items: start;
