@@ -10,18 +10,31 @@
   <header class="intro">
     <h1>Pierre Anton</h1>
     <p>ICT engineering student and content creator.</p>
+    <nav class="page-nav" aria-label="Portfolio">
+      <a href="about.html">About Me</a>
+    </nav>
   </header>
 
   <main>
-    <section aria-labelledby="selected-work">
-      <h2 id="selected-work">Selected Work</h2>
+    <section aria-labelledby="projects">
+      <h2 id="projects">Projects</h2>
       <article class="project">
         <div>
           <h3>Air Gesture Interface</h3>
           <p>A real-time playground for controlling objects with hand gestures, built with Python, MediaPipe Hand Landmarker, and OpenCV.</p>
         </div>
         <a href="https://github.com/antonsec/air-gesture-interface">GitHub repository <span aria-hidden="true">↗</span></a>
-        <!-- Add an optional screenshot or demo here. -->
+        <div class="project-example">
+          <p>The app uses the midpoint between your thumb and index finger as the grab point. The other hand can resize the object while you hold it.</p>
+          <button class="demo-trigger" type="button" aria-haspopup="dialog">Watch the demo</button>
+          <dialog class="demo-window" id="gesture-demo" aria-labelledby="demo-title">
+            <form method="dialog" class="demo-titlebar">
+              <button aria-label="Close demo"><span aria-hidden="true">×</span></button>
+              <strong id="demo-title" tabindex="-1" autofocus>Air Gesture Interface</strong>
+            </form>
+            <img src="air-gesture-demo.gif" alt="Webcam demo of hand gestures moving and resizing virtual objects" width="800" height="500">
+          </dialog>
+        </div>
       </article>
       <article class="project">
         <div>
@@ -29,13 +42,38 @@
           <p>A dependency-free Python CLI that sorts files by category, previews their destinations, and handles filename collisions without overwriting existing files.</p>
         </div>
         <a href="https://github.com/antonsec/smart-file-organizer">GitHub repository <span aria-hidden="true">↗</span></a>
+        <div class="project-example">
+          <figure class="terminal-preview">
+            <div class="terminal-screen" tabindex="0" aria-label="Smart File Organizer dry-run preview">
+              <div class="terminal-command"><code><span aria-hidden="true">$ </span>python organizer.py ~/Downloads --dry-run</code></div>
+              <pre><code><span class="terminal-line">Preview: notes.txt -&gt; sorted_files/Documents/<strong>notes_1.txt</strong></span><span class="terminal-line">Preview: photo.JPG -&gt; sorted_files/Pictures/photo.JPG</span></code></pre>
+            </div>
+            <figcaption>The dry run previews both moves. Since <code>notes.txt</code> already exists in Documents, the organizer proposes <code>notes_1.txt</code>.</figcaption>
+          </figure>
+        </div>
       </article>
+    </section>
+
+    <section class="education" aria-labelledby="education">
+      <h2 id="education">Education</h2>
+      <ul>
+        <li>
+          <h3>Metropolia University of Applied Sciences</h3>
+          <p>ICT Engineering · 2026–2030 (expected)</p>
+        </li>
+        <li>
+          <h3>Business College Helsinki</h3>
+          <p>Cybersecurity and IT support · 2022–2025</p>
+        </li>
+      </ul>
     </section>
   </main>
 
   <footer class="contact">
-    <a href="mailto:pierre.antonhihi@gmail.com">Email</a>
+    <a href="mailto:pierre.antonhihi@gmail.com">Email <span aria-hidden="true">↗</span></a>
     <a href="https://github.com/antonsec">GitHub <span aria-hidden="true">↗</span></a>
+    <a href="https://www.linkedin.com/in/pierre-el-hihi-40b312265/">LinkedIn <span aria-hidden="true">↗</span></a>
   </footer>
+  <script src="demo-dialog.js" defer></script>
 </body>
 </html>

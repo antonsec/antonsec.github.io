@@ -73,11 +73,16 @@ h2 {
   gap: var(--space-2);
   align-items: baseline;
   justify-items: start;
+}
+
+.project,
+.education li {
   padding-block: var(--space-4);
   border-block: 1px solid var(--rule);
 }
 
-.project + .project {
+.project + .project,
+.education li + li {
   border-block-start: 0;
 }
 
@@ -88,8 +93,30 @@ h3 {
   font-weight: 650;
 }
 
-.project p {
+.project p,
+.education li p {
   margin-top: var(--space-1);
+}
+
+.education {
+  margin-top: var(--space-6);
+}
+
+.education ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.page-nav {
+  margin-top: var(--space-2);
 }
 
 a {
@@ -132,5 +159,212 @@ a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   a {
     transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation: 140ms ease-in both page-exit;
+  }
+
+  ::view-transition-new(root) {
+    animation: 220ms ease-out both page-enter;
+  }
+
+  @keyframes page-exit {
+    to {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+
+  @keyframes page-enter {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+}
+
+.project-example {
+  min-width: 0;
+  width: 100%;
+}
+
+.demo-trigger {
+  margin-top: var(--space-2);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+
+.demo-window {
+  width: min(52rem, calc(100% - 32px));
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.demo-window::backdrop {
+  background: #131b18a6;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .demo-window::backdrop {
+    transition: opacity 150ms ease-in;
+  }
+
+  .demo-window.is-closing::backdrop {
+    opacity: 0;
+  }
+}
+
+.demo-titlebar {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  padding-inline: var(--space-1);
+  text-align: center;
+}
+
+.demo-titlebar button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.demo-titlebar button span {
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #df4d47;
+  border-radius: 50%;
+  background: #ff6059;
+  color: transparent;
+  font: 700 11px/1 system-ui, sans-serif;
+}
+
+.demo-titlebar button:is(:hover, :focus-visible) span {
+  color: #561813;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .demo-titlebar button span {
+    transition: color 140ms ease-out;
+  }
+}
+
+.demo-titlebar button:focus-visible {
+  outline-offset: -4px;
+}
+
+.demo-titlebar strong:focus {
+  outline: none;
+}
+
+.demo-window img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.terminal-preview {
+  max-width: 42rem;
+  margin: 0;
+}
+
+.terminal-screen {
+  overflow: hidden;
+  border-radius: 12px;
+  background: #202623;
+  color: #e0e9e4;
+  font: 0.875rem/1.65 ui-monospace, monospace;
+}
+
+.terminal-command,
+.terminal-screen pre {
+  margin: 0;
+  padding: var(--space-2);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.terminal-command {
+  border-bottom: 1px solid #45534c;
+  background: #2b3530;
+}
+
+.terminal-command span,
+.terminal-screen strong {
+  color: #a7dfbc;
+}
+
+.terminal-screen code,
+.terminal-screen pre {
+  font: inherit;
+}
+
+.terminal-line {
+  display: block;
+}
+
+.terminal-preview figcaption {
+  margin-top: var(--space-1);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.project-example :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.terminal-screen:is(:hover, :focus-visible) {
+  box-shadow: 0 8px 18px #2026234d, 0 3px 6px #20262333;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .terminal-screen {
+    transition: transform 220ms ease-out, box-shadow 220ms ease-out;
+  }
+
+  .terminal-screen:is(:hover, :focus-visible) {
+    transform: translateY(-3px) scale(1.01);
+  }
+
+  .terminal-screen:is(:hover, :focus-visible) .terminal-command code {
+    display: block;
+    animation: terminal-command-reveal 500ms steps(24, end) both;
+  }
+
+  .terminal-screen:is(:hover, :focus-visible) strong {
+    animation: terminal-match 600ms ease-out 500ms both;
+  }
+
+  @keyframes terminal-command-reveal {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0); }
+  }
+
+  @keyframes terminal-match {
+    25% { background-color: #a7dfbc; color: #202623; }
   }
 }
