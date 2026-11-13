@@ -426,30 +426,32 @@ a:focus-visible {
 .contact a {
   display: grid;
   place-items: center;
-  min-width: 44px;
-  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--rule);
   border-radius: 8px;
+  background: var(--paper);
+  box-shadow: -2px 2px 0 var(--rule), -3px 4px 6px #20262318;
 }
 
-.contact a:hover {
-  background: color-mix(in srgb, var(--accent) 10%, transparent);
+.contact a:is(:hover, :focus-visible) {
+  background: var(--accent);
+  color: white;
+  box-shadow: -3px 3px 0 #204d43, -5px 8px 12px #20262330;
 }
 
 .contact svg {
-  width: 26px;
-  height: 26px;
-}
-
-.contact a:is(:hover, :focus-visible) svg {
-  filter: drop-shadow(0 3px 4px #20262340);
+  width: 20px;
+  height: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .contact svg {
-    transition: transform 220ms ease-out, filter 220ms ease-out;
+  .contact a {
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out,
+      background-color 200ms ease-out, color 200ms ease-out;
   }
 
-  .contact a:is(:hover, :focus-visible) svg {
-    transform: scale(1.16);
+  .contact a:is(:hover, :focus-visible) {
+    transform: translate(2px, -3px) rotate(-5deg) skewX(4deg);
   }
 }
