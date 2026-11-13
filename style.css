@@ -127,6 +127,28 @@ h3 {
   margin-top: var(--space-6);
 }
 
+.experience {
+  width: min(100%, 36rem);
+}
+
+.experience-role {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px var(--space-2);
+  border-top: 1px solid var(--rule);
+  padding-top: var(--space-2);
+}
+
+.experience-role span {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.experience p {
+  margin-top: var(--space-1);
+}
+
 .page-nav {
   margin-top: var(--space-2);
 }
@@ -399,4 +421,35 @@ a:focus-visible {
   width: 104%;
   max-width: none;
   margin-inline-start: -4%;
+}
+
+.contact a {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 8px;
+}
+
+.contact a:hover {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.contact svg {
+  width: 26px;
+  height: 26px;
+}
+
+.contact a:is(:hover, :focus-visible) svg {
+  filter: drop-shadow(0 3px 4px #20262340);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .contact svg {
+    transition: transform 220ms ease-out, filter 220ms ease-out;
+  }
+
+  .contact a:is(:hover, :focus-visible) svg {
+    transform: scale(1.16);
+  }
 }
