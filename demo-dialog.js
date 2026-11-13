@@ -17,14 +17,15 @@ trigger.addEventListener("click", () => {
   }
   if (!demo.hasAttribute("src")) {
     status.textContent = "Loading demo…";
-    demo.src = demo.dataset.src;
-    demo.decode().then(() => {
+    demo.onload = () => {
       demo.hidden = false;
       status.textContent = "";
-    }).catch(() => {
+    };
+    demo.onerror = () => {
       demo.removeAttribute("src");
-      status.textContent = "The demo couldn’t load. Close this window and try again.";
-    });
+      status.textContent = "The demo couldn't load. Close this window and try again.";
+    };
+    demo.src = demo.dataset.src;
   }
 });
 

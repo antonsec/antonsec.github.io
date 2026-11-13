@@ -12,7 +12,7 @@
   <meta property="og:description" content="Explore Pierre Anton’s software projects, including a webcam-based hand gesture interface and a Python file organizer with safe dry-run previews.">
   <meta property="og:image" content="https://pierreanton.com/demo/social-preview.jpg">
   <meta property="og:image:alt" content="Air Gesture Interface tracking a hand and moving virtual objects">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body class="page">
   <header class="intro">
@@ -42,7 +42,9 @@
               <strong id="demo-title" tabindex="-1" autofocus>Air Gesture Interface</strong>
             </form>
             <p class="demo-status" role="status"></p>
-            <img hidden data-src="demo/air-gesture-demo.gif" alt="Webcam demo of hand gestures moving and resizing virtual objects" width="800" height="500">
+            <div class="demo-frame">
+              <img hidden data-src="demo/air-gesture-demo.gif?v=2" alt="Webcam demo of hand gestures moving and resizing virtual objects" width="800" height="500">
+            </div>
           </dialog>
         </div>
       </article>
@@ -84,6 +86,6 @@
     <a href="https://github.com/antonsec">GitHub <span aria-hidden="true">↗</span></a>
     <a href="https://www.linkedin.com/in/pierre-el-hihi-40b312265/">LinkedIn <span aria-hidden="true">↗</span></a>
   </footer>
-  <script src="demo-dialog.js?v=4" defer></script>
+  <script src="demo-dialog.js?v=5" defer></script>
 </body>
 </html>
