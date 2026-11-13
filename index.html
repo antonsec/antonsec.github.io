@@ -12,7 +12,7 @@
   <meta property="og:description" content="Explore Pierre Anton’s software projects, including a webcam-based hand gesture interface and a Python file organizer with safe dry-run previews.">
   <meta property="og:image" content="https://pierreanton.com/demo/social-preview.jpg">
   <meta property="og:image:alt" content="Air Gesture Interface tracking a hand and moving virtual objects">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body class="page">
   <header class="intro">
@@ -33,6 +33,7 @@
         </div>
         <a href="https://github.com/antonsec/air-gesture-interface">GitHub repository <span aria-hidden="true">↗</span></a>
         <div class="project-example">
+          <a href="https://github.com/antonsec/air-gesture-interface#readme">Read how it works on GitHub ↗</a>
           <p>The app uses the midpoint between your thumb and index finger as the grab point. The other hand can resize the object while you hold it.</p>
           <button class="demo-trigger" type="button" aria-haspopup="dialog">Watch the demo</button>
           <dialog class="demo-window" id="gesture-demo" aria-labelledby="demo-title">
@@ -40,7 +41,8 @@
               <button aria-label="Close demo"><span aria-hidden="true">×</span></button>
               <strong id="demo-title" tabindex="-1" autofocus>Air Gesture Interface</strong>
             </form>
-            <img src="demo/air-gesture-demo.gif" alt="Webcam demo of hand gestures moving and resizing virtual objects" width="800" height="500">
+            <p class="demo-status" role="status"></p>
+            <img hidden data-src="demo/air-gesture-demo.gif" alt="Webcam demo of hand gestures moving and resizing virtual objects" width="800" height="500">
           </dialog>
         </div>
       </article>
@@ -82,6 +84,6 @@
     <a href="https://github.com/antonsec">GitHub <span aria-hidden="true">↗</span></a>
     <a href="https://www.linkedin.com/in/pierre-el-hihi-40b312265/">LinkedIn <span aria-hidden="true">↗</span></a>
   </footer>
-  <script src="demo-dialog.js?v=2" defer></script>
+  <script src="demo-dialog.js?v=4" defer></script>
 </body>
 </html>

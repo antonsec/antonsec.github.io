@@ -381,3 +381,12 @@ a:focus-visible {
     25% { background-color: #a7dfbc; color: #202623; }
   }
 }
+
+.demo-window img[hidden],
+.demo-status:empty {
+  display: none;
+}
+
+.demo-status {
+  padding: var(--space-2);
+}
